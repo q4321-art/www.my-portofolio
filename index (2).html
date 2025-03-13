@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Morph</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            padding: 50px;
+            animation: morphing 8s infinite alternate ease-in-out;
+        }
+        .morph-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            animation: morphing 6s infinite alternate ease-in-out, float 5s infinite alternate ease-in-out;
+        }
+        @keyframes morphing {
+            0% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                transform: scale(1);
+            }
+            50% {
+                border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+                transform: scale(1.05);
+            }
+            100% {
+                border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+                transform: scale(1);
+            }
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(10px);
+            }
+        }
+        h1, p {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        section {
+            height: 100vh;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+        }
+        .profile {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function showContent() {
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('about').style.display = 'flex';
+        }
+        function showContact() {
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('contact').style.display = 'flex';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="morph-box">
+            <h1>Welcome to My portofolio🥱</h1>
+            <p>Hanya orang tertentu yang mengenal saya</p>
+            <button class="btn btn-light" onclick="showContent()">Get Started</button>
+        </div>
+    </div>
+    
+    <section id="about">
+        <h2>AGAM AL HAKIM </h2>
+        <div class="profile">
+            <img src="27..jpg" alt="Profile Picture" width="100" height="100" class="rounded-circle">
+            <h2>Tentang Saya</h2>
+        </div>
+        <p>perkenalkan saya Agam Al Hakim Hasibuan lahir pada tahun 2005 di pekanbaru riau. 
+            Sejak kecil,saya memiliki minat dalam dunia teknologi dan pemrograman.  
+            Dalam perjalanan pendidikan,Saya dulu menempuh pendidikan dasar di SDN 016 kenantan tapung Kab Kampar Riau,kemudian melanjutkan ke ponpes As salam Naga Beralih Kampar Utara.
+            Semangat saya dalam bidang teknologi semakin berkembang ketika saya bersekolah di SMA negeri 4 tapung muara mahat baru kab kampar kec tapung riau, di mana saya mulai mendalami pemrograman dan desain web.  
+            Saat ini, saya sedang menempuh pendidikan di Universitas Pahlawan Tuanku Tambusai bangkinang,kab kampar riau dengan fokus pada jurusan teknik informatika. 
+            Ia aktif dalam mengembangkan berbagai proyek berbasis web, termasuk Jasa joki tugas,Jasa pembuatan website seperti portofolio pribadi, aplikasi web toko online, serta proyek blog pribadi yang mencerminkan ketertarikannya dalam dunia pengembangan web.</p>
+        <button class="btn btn-light" onclick="showContact()">klik selengkapnya</button>
+    </section>
+    
+    <section id="contact">
+        <h2>CONTACT ME 👇</h2>
+        <p>Silahkan hubungi saya melalui!</p>
+        <div class="contact-info">
+            <div class="profile">
+                <img src="logo 1.png" alt="Profile Picture" width="100" height="100" class="rounded-circle">
+                <h3></h3>
+            </div>
+            <p>Email: <a href="mailto:yourname@example.com" class="text-white">agam06614@gmail.com</a>
+            </p>
+            <div class="profile">
+                <img src="logo 2 .jpg" alt="Profile Picture" width="100" height="100" class="rounded-circle">
+                <h3></h3>
+            </div>
+            <p>WhatsApp Me : 
+                <a href="https://wa.me/yourwhatsappnumber" class="text-white"> 087856643707</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>
